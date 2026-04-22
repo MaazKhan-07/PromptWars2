@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectIQ | Voter Knowledge Test</title>
+  <meta name="description" content="Test your knowledge of the democratic process and voting rights.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">ElectIQ</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link active">Quiz</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="chat.html" class="btn-ask-ai"><span class="material-symbols-outlined" style="font-size:18px">smart_toy</span> Ask AI</a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link active">Quiz</a>
+        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="quiz-section">
+      <div class="container small-container">
+        <!-- Quiz Progress -->
+        <div class="quiz-header fade-in">
+          <div>
+            <span class="quiz-cat">DEMOCRACY FOUNDATIONS</span>
+            <h1 class="quiz-title">Voter Knowledge Test</h1>
+          </div>
+          <div class="quiz-count">Question <span id="currentIdx">1</span> of <span id="totalQuestions">5</span></div>
+        </div>
+        
+        <div class="progress-container fade-in">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Quiz Area -->
+        <div class="quiz-card fade-in" id="quizCard">
+          <div class="quiz-question-wrap">
+            <span class="material-symbols-outlined quiz-q-icon">help</span>
+            <h3 id="questionText">Which of the following best describes the role of the Electoral College in U.S. Presidential elections?</h3>
+          </div>
+
+          <div class="quiz-options" id="quizOptions">
+            <!-- Options go here -->
+            <button class="quiz-option">
+              <span class="opt-letter">A</span>
+              <span class="opt-text">A direct popular vote where the candidate with the most individual votes wins.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-actions fade-in">
+          <button class="btn-ghost" id="prevBtn">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Previous
+          </button>
+          <button class="btn-primary" id="nextBtn">
+            Next Question
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Result View (Hidden by default) -->
+        <div class="quiz-results" id="quizResults" style="display:none">
+          <div class="results-header">
+            <span class="material-symbols-outlined result-star">stars</span>
+            <h2>Quiz Complete!</h2>
+            <p>Outstanding performance. You've demonstrated a deep understanding of civic structures.</p>
+          </div>
+
+          <div class="results-grid">
+            <div class="res-card">
+              <span class="res-label">FINAL SCORE</span>
+              <span class="res-val" id="finalScore">9 / 10</span>
+            </div>
+            <div class="res-card">
+              <span class="res-label">TIME TAKEN</span>
+              <span class="res-val" id="timeTaken">4:12</span>
+            </div>
+            <div class="res-card accent">
+              <span class="res-label">RANK</span>
+              <span class="res-val">Civic Expert</span>
+            </div>
+          </div>
+
+          <div class="unlock-card">
+            <div class="unlock-left">
+              <div class="badge-icon">
+                <span class="material-symbols-outlined">emoji_events</span>
+              </div>
+              <div>
+                <h4>Knowledge Badge Unlocked</h4>
+                <p>Constitutional Foundations Level 1</p>
+              </div>
+            </div>
+            <div class="unlock-btns">
+              <button class="btn-outline" onclick="location.reload()">Retry Quiz</button>
+              <button class="btn-primary">Share Results <span class="material-symbols-outlined" style="font-size:18px">share</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ElectIQ</div>
+        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
+        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

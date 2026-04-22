@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectIQ | Glossary & Election Knowledge Base</title>
+  <meta name="description" content="Explore our comprehensive, non-partisan database of election terms defined in plain English.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">ElectIQ</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link active">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="chat.html" class="btn-ask-ai"><span class="material-symbols-outlined" style="font-size:18px">smart_toy</span> Ask AI</a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link active">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="glossary-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Election Glossary</h2>
+          <p>Democracy shouldn't be a puzzle. Explore our comprehensive database of election terms defined in plain English.</p>
+        </div>
+
+        <div class="glossary-search-wrap fade-in">
+          <span class="material-symbols-outlined">search</span>
+          <input type="text" class="glossary-search" id="glossarySearch" placeholder="Search for terms like 'Gerrymandering' or 'Caucus'...">
+        </div>
+
+        <div class="alpha-bar fade-in" id="alphaBar">
+          <!-- JS will populate this -->
+        </div>
+
+        <div class="glossary-columns fade-in" id="glossaryGrid">
+          <!-- A -->
+          <div class="glossary-group" data-letter="A">
+            <h3 class="letter-heading">A</h3>
+            <div class="glossary-card">
+              <h4>Absentee Ballot</h4>
+              <p>A ballot cast by a voter who is unable to go to their polling place on Election Day.</p>
+            </div>
+            <div class="glossary-card">
+              <h4>Adjudication</h4>
+              <p>The process of determining the intent of a voter when a ballot cannot be read by a machine.</p>
+            </div>
+          </div>
+
+          <!-- B -->
+          <div class="glossary-group" data-letter="B">
+            <h3 class="letter-heading">B</h3>
+            <div class="glossary-card">
+              <h4>Ballot</h4>
+              <p>A device used to cast votes in an election, usually a piece of paper or a digital interface.</p>
+              <div class="dyk-callout">
+                <span class="material-symbols-outlined filled gold" style="font-size:16px">lightbulb</span>
+                <span>The word 'ballot' comes from 'ballotta', meaning a small ball used in secret voting.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- C -->
+          <div class="glossary-group" data-letter="C">
+            <h3 class="letter-heading">C</h3>
+            <div class="glossary-card">
+              <h4>Caucus</h4>
+              <p>A meeting of local party members to choose candidates for public office or to decide platform policy.</p>
+            </div>
+            <div class="glossary-card">
+              <h4>Certification</h4>
+              <p>The formal verify of election results by official governing boards.</p>
+            </div>
+          </div>
+
+          <!-- E -->
+          <div class="glossary-group" data-letter="E">
+            <h3 class="letter-heading">E</h3>
+            <div class="glossary-card">
+              <h4>Electoral Vote</h4>
+              <p>The vote cast in the Electoral College by representatives of each state to determine the President.</p>
+              <div class="dyk-callout">
+                <span class="material-symbols-outlined filled gold" style="font-size:16px">lightbulb</span>
+                <span>A candidate needs 270 electoral votes—a simple majority of the 538 total—to win.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- G -->
+          <div class="glossary-group" data-letter="G">
+            <h3 class="letter-heading">G</h3>
+            <div class="glossary-card">
+              <h4>Gerrymandering</h4>
+              <p>The practice of manipulating the boundaries of an electoral constituency so as to favor one party.</p>
+            </div>
+          </div>
+
+          <!-- S -->
+          <div class="glossary-group" data-letter="S">
+            <h3 class="letter-heading">S</h3>
+            <div class="glossary-card">
+              <h4>Swing State</h4>
+              <p>A US state where the two major political parties have similar levels of support, vital for winning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ElectIQ</div>
+        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
+        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

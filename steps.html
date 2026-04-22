@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Election Steps Explorer | ElectIQ</title>
+  <meta name="description" content="A comprehensive guide through the democratic process. Understand every milestone from filing to the inauguration.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">ElectIQ</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link active">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="chat.html" class="btn-ask-ai"><span class="material-symbols-outlined" style="font-size:18px">smart_toy</span> Ask AI</a>
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link active">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="steps-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Election Journey</h2>
+          <p>A comprehensive guide through the democratic process. Understand every milestone from filing to the inauguration.</p>
+        </div>
+
+        <div class="filter-bar fade-in">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="federal">Federal</button>
+          <button class="filter-btn" data-filter="state">State</button>
+          <button class="filter-btn" data-filter="local">Local</button>
+        </div>
+
+        <div class="steps-grid fade-in" id="stepsGrid">
+          <!-- Step 1 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">01</span>
+            <span class="material-symbols-outlined step-icon">edit_note</span>
+            <h3>Candidacy Filing</h3>
+            <p class="step-desc">Official declaration of intent to run for office, meeting legal requirements and deadlines.</p>
+            <div class="step-accordion">
+              Candidates must submit formal paperwork, signatures, and pay filing fees according to local or state laws. This stage ensures only qualified individuals appear on the ballot.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card" data-category="federal state">
+            <span class="step-badge">02</span>
+            <span class="material-symbols-outlined step-icon">groups</span>
+            <h3>Primaries</h3>
+            <p class="step-desc">Party members vote to select their preferred candidate for the general election phase.</p>
+            <div class="step-accordion">
+              Primaries can be 'open' (any registered voter) or 'closed' (only party members). Winners represent their party in the General Election.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card" data-category="federal state">
+            <span class="step-badge">03</span>
+            <span class="material-symbols-outlined step-icon">podium</span>
+            <h3>Debates</h3>
+            <p class="step-desc">Candidates face off to discuss policies, vision, and respond to public concerns on live air.</p>
+            <div class="step-accordion">
+              Debates provide a platform for voters to compare candidates' stances side-by-side on critical issues like economy, health, and security.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">04</span>
+            <span class="material-symbols-outlined step-icon" style="color:var(--secondary)">event_available</span>
+            <h3>Registration Deadlines</h3>
+            <p class="step-desc">The final dates for citizens to register to vote in the upcoming general election cycle.</p>
+            <div class="step-accordion">
+              Deadlines vary by state. Many states offer online registration, while some allow same-day registration at polling places.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">05</span>
+            <span class="material-symbols-outlined step-icon">how_to_vote</span>
+            <h3>Early Voting</h3>
+            <p class="step-desc">Opportunity for voters to cast their ballots before the official election day at designated sites.</p>
+            <div class="step-accordion">
+              Early voting helps reduce lines on Election Day and provides flexibility for citizens with difficult work schedules or travel plans.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">06</span>
+            <span class="material-symbols-outlined step-icon" style="color:var(--secondary)">flag</span>
+            <h3>Election Day</h3>
+            <p class="step-desc">The primary day for nationwide voting. Polls open across all districts and time zones.</p>
+            <div class="step-accordion">
+              Voters typically cast ballots at their assigned local polling stations. Absentee and mail-in ballots must usually be received by this day.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">07</span>
+            <span class="material-symbols-outlined step-icon">calculate</span>
+            <h3>Counting</h3>
+            <p class="step-desc">Secure tallying of all cast ballots, including absentee and provisional votes, by election officials.</p>
+            <div class="step-accordion">
+              Counting is often observed by representatives of both parties to ensure transparency. Unofficial results are usually broadcast on election night.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 8 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">08</span>
+            <span class="material-symbols-outlined step-icon">verified</span>
+            <h3>Certification</h3>
+            <p class="step-desc">Formal process where election results are verified and legally finalized by governing boards.</p>
+            <div class="step-accordion">
+              Once all votes are tallied and any challenges are resolved, officials formally certify the winner of each race.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 9 -->
+          <div class="step-card" data-category="federal">
+            <span class="step-badge">09</span>
+            <span class="material-symbols-outlined step-icon">account_balance</span>
+            <h3>Electoral College Vote</h3>
+            <p class="step-desc">Electors meet in their respective states to cast their official votes for President and Vice President.</p>
+            <div class="step-accordion">
+              In the U.S., the President is technically elected by electors rather than the direct popular vote. A candidate needs 270 votes to win.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+
+          <!-- Step 10 -->
+          <div class="step-card" data-category="federal state local">
+            <span class="step-badge">10</span>
+            <span class="material-symbols-outlined step-icon" style="color:var(--tertiary-container)">celebration</span>
+            <h3>Inauguration</h3>
+            <p class="step-desc">The formal ceremony marking the beginning of a new term for the elected official.</p>
+            <div class="step-accordion">
+              The winner takes the oath of office, affirming their commitment to uphold the laws and serve the citizens of their jurisdiction.
+            </div>
+            <div class="step-more-btn">
+              <span>Learn More</span>
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ElectIQ</div>
+        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
+        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectIQ | Understand Every Step of the Election Process</title>
+  <meta name="description"
+    content="Navigate the complexities of the democratic process with clear, fact-based insights and real-time AI assistance.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo">ElectIQ</a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link active">Learn</a>
+          <a href="timeline.html" class="nav-link">Timeline</a>
+          <a href="steps.html" class="nav-link">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="chat.html" class="btn-ask-ai">
+            <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
+            Ask AI
+          </a>
+          <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-links">
+          <a href="index.html" class="nav-link active">Learn</a>
+          <a href="timeline.html" class="nav-link">Timeline</a>
+          <a href="steps.html" class="nav-link">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero-section">
+        <!-- Decorative icons -->
+        <div class="hero-decor tl"><span class="material-symbols-outlined" style="font-size:96px">ballot</span></div>
+        <div class="hero-decor br"><span class="material-symbols-outlined" style="font-size:80px">search</span></div>
+        <div class="hero-decor ml"><span class="material-symbols-outlined" style="font-size:56px">calendar_today</span>
+        </div>
+
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-text">
+              <div class="hero-badge">
+                <span class="material-symbols-outlined" style="font-size:14px">verified</span>
+                Official Voting Guide
+              </div>
+              <h1 class="hero-title">Understand Every Step of the Election Process</h1>
+              <p class="hero-subtitle">Democracy, Simplified.</p>
+              <p class="hero-desc">Navigate the complexities of the democratic process with clear, fact-based insights
+                and real-time AI assistance designed for every citizen.</p>
+              <div class="hero-ctas">
+                <a href="steps.html" class="btn-primary">
+                  Start Learning
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+                <a href="chat.html" class="btn-outline">
+                  Ask the Assistant
+                  <span class="material-symbols-outlined">smart_toy</span>
+                </a>
+              </div>
+              <div class="trust-badges">
+                <div class="trust-badge">
+                  <span class="material-symbols-outlined filled red">gavel</span>
+                  <span>Non-Partisan</span>
+                </div>
+                <div class="trust-badge">
+                  <span class="material-symbols-outlined filled gold">fact_check</span>
+                  <span>Fact-Based</span>
+                </div>
+                <div class="trust-badge">
+                  <span class="material-symbols-outlined filled navy">volunteer_activism</span>
+                  <span>Beginner-Friendly</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Illustration -->
+            <div class="hero-illustration">
+              <div class="main-visual">
+                <div class="hero-center-icon">
+                  <span class="material-symbols-outlined">how_to_vote</span>
+                </div>
+                <div class="float-card top-left">
+                  <span class="material-symbols-outlined" style="color:var(--secondary);font-size:20px">event</span>
+                  <div>
+                    <div class="fc-label">Election Day</div>
+                    <div class="fc-value">Nov 5, 2024</div>
+                  </div>
+                </div>
+                <div class="float-card bottom-right">
+                  <span class="material-symbols-outlined"
+                    style="color:var(--tertiary);font-size:20px">account_balance</span>
+                  <div>
+                    <div class="fc-label">Civic Duty</div>
+                    <div class="fc-value">100% Impact</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENTO FEATURES -->
+      <section class="bento-section">
+        <div class="container">
+          <div class="bento-header fade-in">
+            <h2>Everything you need to participate</h2>
+            <p>Simple tools for a complex world.</p>
+          </div>
+          <div class="bento-grid">
+            <div class="card span-2 fade-in">
+              <span class="material-symbols-outlined card-icon red">route</span>
+              <h3>Personalized Voter Roadmap</h3>
+              <p class="card-desc">From registration to results, we track every milestone for your specific district so
+                you never miss a deadline.</p>
+              <div class="tags">
+                <span class="tag">Registration</span>
+                <span class="tag">Polling Locations</span>
+              </div>
+            </div>
+            <div class="card dark-card fade-in">
+              <span class="material-symbols-outlined card-icon yellow">psychology</span>
+              <h3>AI Policy Analyst</h3>
+              <p class="card-desc">Upload any ballot measure to get an instant, non-partisan summary of what 'Yes' or
+                'No' really means.</p>
+            </div>
+            <div class="card fade-in">
+              <span class="material-symbols-outlined card-icon navy">auto_stories</span>
+              <h3>Civic Library</h3>
+              <p class="card-desc">A comprehensive encyclopedia of government structures, simplified for the modern age.
+              </p>
+            </div>
+            <div class="card span-2 fade-in">
+              <span class="material-symbols-outlined card-icon gold">quiz</span>
+              <h3>Test Your Knowledge</h3>
+              <p class="card-desc">Are you ready for the polls? Take our quick quiz and see where you stand on voting
+                rights and procedures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">ElectIQ</div>
+          <p class="footer-copy">© 2026 ElectIQ. This is a strictly non-partisan educational platform. Always check with
+            your local election authority for jurisdiction-specific rules.</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="steps.html">Steps</a>
+          <a href="glossary.html">Glossary</a>
+          <a href="chat.html">AI Assistant</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

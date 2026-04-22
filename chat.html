@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectIQ | AI Assistant</title>
+  <meta name="description" content="Get neutral, fact-based information about elections and democratic processes from our AI assistant.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">ElectIQ</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link active">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+      </nav>
+      <div class="nav-actions">
+        <!-- In AI Assistant page, we maybe hide the redundant button or keep it -->
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html" class="nav-link">Learn</a>
+        <a href="timeline.html" class="nav-link">Timeline</a>
+        <a href="steps.html" class="nav-link">Steps</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+        <a href="chat.html" class="nav-link active">AI Assistant</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat-page">
+    <div class="container" style="flex:1; display:flex; flex-direction:column;">
+      <div class="chat-wrapper fade-in">
+        <div class="chat-top-bar">
+          <div class="chat-identity">
+            <div class="chat-avatar-ring">
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
+            <div>
+              <h2>ElectIQ Assistant</h2>
+              <p class="chat-sub">Reliable • Non-partisan • Expert</p>
+            </div>
+          </div>
+          <div class="chat-actions">
+            <button class="icon-btn" title="History"><span class="material-symbols-outlined">history</span></button>
+            <button class="icon-btn" title="Settings"><span class="material-symbols-outlined">settings</span></button>
+          </div>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+          <!-- Initial AI message -->
+          <div class="chat-msg ai">
+            <div class="msg-avatar">
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
+            <div class="msg-content">
+              <div class="msg-ai">
+                Hello! I'm your ElectIQ assistant. I'm here to provide neutral, fact-based information about elections and democratic processes. How can I help you today?
+              </div>
+              <div class="msg-source">
+                <span class="material-symbols-outlined">verified</span>
+                <span>Sources: Federal Election Commission, USA.gov</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Message Example -->
+          <!-- <div class="chat-msg user">
+            <div class="msg-user">How do I make sure I am registered to vote?</div>
+          </div> -->
+
+          <!-- Typing Indicator -->
+          <div class="typing-dots" id="typingIndicator">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+
+        <div class="chat-chips" id="chatChips">
+          <button class="chip">How do I register?</button>
+          <button class="chip">What is the Electoral College?</button>
+          <button class="chip">When is Election Day?</button>
+          <button class="chip">How are votes counted?</button>
+        </div>
+
+        <div class="chat-input-bar">
+          <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Type your election question here..." autocomplete="off">
+            <button class="icon-btn"><span class="material-symbols-outlined">mic</span></button>
+            <button class="chat-send-btn" id="sendBtn" disabled>
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+          <p class="chat-disclaimer">ElectIQ AI may provide information for educational purposes only. Always verify with official local sources.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ElectIQ</div>
+        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
+        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
