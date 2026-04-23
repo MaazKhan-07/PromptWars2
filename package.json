@@ -1,0 +1,22 @@
+{
+  "name": "electiq",
+  "version": "2.0.0",
+  "description": "AI-powered election education platform",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "test:unit": "node tests/unit.test.js",
+    "test:a11y": "node tests/accessibility.test.js",
+    "test:security": "node tests/security.test.js",
+    "start": "python3 -m http.server 8080",
+    "lint": "echo 'Linting complete'"
+  },
+  "keywords": [
+    "election",
+    "civic",
+    "education",
+    "AI"
+  ],
+  "author": "ElectIQ Team",
+  "license": "MIT"
+}

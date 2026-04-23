@@ -1,107 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ElectIQ | Interactive Election Timeline</title>
-  <meta name="description" content="Follow each stage of the election process from voter registration to inauguration day.">
+  <meta http-equiv="Content-Security-Policy" 
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googletagmanager.com;">
+  
+  <title>Election Timeline | ElectIQ Roadmap</title>
+  <meta name="description" content="A comprehensive timeline of the U.S. election cycle from registration to inauguration.">
+  
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="style.css?v=1.1">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
 </head>
+
 <body>
-<div class="page-wrapper">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="navbar-logo">ElectIQ</a>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Learn</a>
-        <a href="timeline.html" class="nav-link active">Timeline</a>
-        <a href="steps.html" class="nav-link">Steps</a>
-        <a href="glossary.html" class="nav-link">Glossary</a>
-        <a href="chat.html" class="nav-link">AI Assistant</a>
-        <a href="quiz.html" class="nav-link">Quiz</a>
-      </nav>
-      <div class="nav-actions">
-        <a href="chat.html" class="btn-ask-ai"><span class="material-symbols-outlined" style="font-size:18px">smart_toy</span> Ask AI</a>
-        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
-      </div>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    </div>
-    <div class="mobile-drawer" id="mobileDrawer">
-      <div class="mobile-drawer-links">
-        <a href="index.html" class="nav-link">Learn</a>
-        <a href="timeline.html" class="nav-link active">Timeline</a>
-        <a href="steps.html" class="nav-link">Steps</a>
-        <a href="glossary.html" class="nav-link">Glossary</a>
-        <a href="chat.html" class="nav-link">AI Assistant</a>
-        <a href="quiz.html" class="nav-link">Quiz</a>
-        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="timeline-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>The Election Journey</h2>
-          <p>Follow each stage of the election process from voter registration to inauguration day.</p>
+  <div class="page-wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar" role="banner">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo">ElectIQ</a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Learn</a>
+          <a href="timeline.html" class="nav-link active" aria-current="page">Timeline</a>
+          <a href="steps.html" class="nav-link">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="chat.html" class="btn-ask-ai">
+            <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
+            Ask AI
+          </a>
+          <button class="dark-toggle" id="darkToggle" aria-label="Switch to dark mode" aria-pressed="false">🌙</button>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-drawer" id="mobileDrawer">
+        <nav class="mobile-drawer-links" aria-label="Mobile Navigation">
+          <a href="index.html" class="nav-link">Learn</a>
+          <a href="timeline.html" class="nav-link active">Timeline</a>
+          <a href="steps.html" class="nav-link">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+        </nav>
+      </div>
+    </header>
 
-        <div class="timeline-scroll fade-in">
-          <div class="timeline-track" id="timelineTrack">
-            <div class="timeline-card" data-stage="registration" tabindex="0">
-              <div class="timeline-node" style="background:#2196F3"><span class="material-symbols-outlined">app_registration</span></div>
-              <span class="timeline-label">Voter Registration</span>
-            </div>
-            <div class="timeline-card" data-stage="primaries" tabindex="0">
-              <div class="timeline-node" style="background:#9C27B0"><span class="material-symbols-outlined">account_balance</span></div>
-              <span class="timeline-label">Primary Elections</span>
-            </div>
-            <div class="timeline-card" data-stage="campaigns" tabindex="0">
-              <div class="timeline-node" style="background:#FF9800"><span class="material-symbols-outlined">campaign</span></div>
-              <span class="timeline-label">Campaigns & Debates</span>
-            </div>
-            <div class="timeline-card" data-stage="electionday" tabindex="0">
-              <div class="timeline-node" style="background:#E53935"><span class="material-symbols-outlined">how_to_vote</span></div>
-              <span class="timeline-label">Election Day</span>
-            </div>
-            <div class="timeline-card" data-stage="counting" tabindex="0">
-              <div class="timeline-node" style="background:#00897B"><span class="material-symbols-outlined">calculate</span></div>
-              <span class="timeline-label">Vote Counting</span>
-            </div>
-            <div class="timeline-card" data-stage="certification" tabindex="0">
-              <div class="timeline-node" style="background:#43A047"><span class="material-symbols-outlined">verified</span></div>
-              <span class="timeline-label">Certification</span>
-            </div>
-            <div class="timeline-card" data-stage="inauguration" tabindex="0">
-              <div class="timeline-node" style="background:#FFB300"><span class="material-symbols-outlined">celebration</span></div>
-              <span class="timeline-label">Inauguration</span>
+    <main id="main-content" role="main">
+      <section class="timeline-hero">
+        <div class="container text-center">
+          <h1 class="text-h1">The Election Journey</h1>
+          <p class="text-p">Follow each stage of the election process from voter registration to inauguration day.</p>
+        </div>
+      </section>
+
+      <!-- TIMELINE TRACK -->
+      <section class="timeline-section fade-in">
+        <div class="container">
+          <div class="timeline-scroll-container">
+            <div class="timeline-grid" id="timelineTrack" role="list">
+              <div class="timeline-line-background"></div>
+              <!-- Stage 1 -->
+              <div class="timeline-card" data-stage="registration" role="listitem" tabindex="0" aria-label="Details for Voter Registration">
+                <div class="timeline-node" style="background:#2196F3">
+                  <span class="material-symbols-outlined">how_to_reg</span>
+                </div>
+                <div class="timeline-label">Voter Registration</div>
+              </div>
+
+              <!-- Stage 2 -->
+              <div class="timeline-card" data-stage="primaries" role="listitem" tabindex="0" aria-label="Details for Primary Elections">
+                <div class="timeline-node" style="background:#9C27B0">
+                  <span class="material-symbols-outlined">account_balance</span>
+                </div>
+                <div class="timeline-label">Primary Elections</div>
+              </div>
+
+              <!-- Stage 3 -->
+              <div class="timeline-card" data-stage="campaigns" role="listitem" tabindex="0" aria-label="Details for Campaigns and Debates">
+                <div class="timeline-node" style="background:#FF9800">
+                  <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div class="timeline-label">Campaigns & Debates</div>
+              </div>
+
+              <!-- Stage 4 -->
+              <div class="timeline-card" data-stage="electionday" role="listitem" tabindex="0" aria-label="Details for Election Day">
+                <div class="timeline-node" style="background:#E53935">
+                  <span class="material-symbols-outlined">how_to_vote</span>
+                </div>
+                <div class="timeline-label">Election Day</div>
+              </div>
+
+              <!-- Stage 5 -->
+              <div class="timeline-card" data-stage="counting" role="listitem" tabindex="0" aria-label="Details for Vote Counting">
+                <div class="timeline-node" style="background:#00897B">
+                  <span class="material-symbols-outlined">calculate</span>
+                </div>
+                <div class="timeline-label">Vote Counting</div>
+              </div>
+
+              <!-- Stage 6 -->
+              <div class="timeline-card" data-stage="certification" role="listitem" tabindex="0" aria-label="Details for Certification">
+                <div class="timeline-node" style="background:#43A047">
+                  <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div class="timeline-label">Certification</div>
+              </div>
+
+              <!-- Stage 7 -->
+              <div class="timeline-card" data-stage="inauguration" role="listitem" tabindex="0" aria-label="Details for Inauguration">
+                <div class="timeline-node" style="background:#FFB300">
+                  <span class="material-symbols-outlined">celebration</span>
+                </div>
+                <div class="timeline-label">Inauguration</div>
+              </div>
             </div>
           </div>
+
+          <!-- Bottom Scroll Bar Representation -->
+          <div class="timeline-footer-scroll">
+             <span class="material-symbols-outlined nav-arrow">arrow_left</span>
+             <div class="scroll-track">
+               <div class="scroll-thumb"></div>
+             </div>
+             <span class="material-symbols-outlined nav-arrow">arrow_right</span>
+          </div>
         </div>
+      </section>
 
-        <div class="timeline-detail" id="timelineDetail"></div>
+      <!-- DETAIL MODAL/OVERLAY -->
+      <div class="timeline-detail-overlay" id="timelineDetail" aria-live="polite"></div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">ElectIQ</div>
+          <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="steps.html">Steps</a>
+          <a href="glossary.html">Glossary</a>
+          <a href="chat.html">AI Assistant</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">ElectIQ</div>
-        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
-        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
-      </nav>
-    </div>
-  </footer>
-
-</div>
-<script src="script.js"></script>
+  <script src="env.example.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

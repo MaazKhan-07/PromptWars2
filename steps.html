@@ -1,231 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Election Steps Explorer | ElectIQ</title>
-  <meta name="description" content="A comprehensive guide through the democratic process. Understand every milestone from filing to the inauguration.">
+  <meta http-equiv="Content-Security-Policy" 
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com;">
+  
+  <title>Voter Steps | ElectIQ Guide</title>
+  <meta name="description" content="Step-by-step guide to voter registration, polling, and voting rights.">
+  
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
 </head>
+
 <body>
-<div class="page-wrapper">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="navbar-logo">ElectIQ</a>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Learn</a>
-        <a href="timeline.html" class="nav-link">Timeline</a>
-        <a href="steps.html" class="nav-link active">Steps</a>
-        <a href="glossary.html" class="nav-link">Glossary</a>
-        <a href="chat.html" class="nav-link">AI Assistant</a>
-        <a href="quiz.html" class="nav-link">Quiz</a>
-      </nav>
-      <div class="nav-actions">
-        <a href="chat.html" class="btn-ask-ai"><span class="material-symbols-outlined" style="font-size:18px">smart_toy</span> Ask AI</a>
-        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
-      </div>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    </div>
-    <div class="mobile-drawer" id="mobileDrawer">
-      <div class="mobile-drawer-links">
-        <a href="index.html" class="nav-link">Learn</a>
-        <a href="timeline.html" class="nav-link">Timeline</a>
-        <a href="steps.html" class="nav-link active">Steps</a>
-        <a href="glossary.html" class="nav-link">Glossary</a>
-        <a href="chat.html" class="nav-link">AI Assistant</a>
-        <a href="quiz.html" class="nav-link">Quiz</a>
-        <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="steps-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Election Journey</h2>
-          <p>A comprehensive guide through the democratic process. Understand every milestone from filing to the inauguration.</p>
+  <div class="page-wrapper">
+    <header class="navbar" role="banner">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo">ElectIQ</a>
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Learn</a>
+          <a href="timeline.html" class="nav-link">Timeline</a>
+          <a href="steps.html" class="nav-link active" aria-current="page">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="chat.html" class="btn-ask-ai">
+            <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
+            Ask AI
+          </a>
+          <button class="dark-toggle" id="darkToggle" aria-label="Switch to dark mode" aria-pressed="false">🌙</button>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-        <div class="filter-bar fade-in">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="federal">Federal</button>
-          <button class="filter-btn" data-filter="state">State</button>
-          <button class="filter-btn" data-filter="local">Local</button>
-        </div>
-
-        <div class="steps-grid fade-in" id="stepsGrid">
-          <!-- Step 1 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">01</span>
-            <span class="material-symbols-outlined step-icon">edit_note</span>
-            <h3>Candidacy Filing</h3>
-            <p class="step-desc">Official declaration of intent to run for office, meeting legal requirements and deadlines.</p>
-            <div class="step-accordion">
-              Candidates must submit formal paperwork, signatures, and pay filing fees according to local or state laws. This stage ensures only qualified individuals appear on the ballot.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-card" data-category="federal state">
-            <span class="step-badge">02</span>
-            <span class="material-symbols-outlined step-icon">groups</span>
-            <h3>Primaries</h3>
-            <p class="step-desc">Party members vote to select their preferred candidate for the general election phase.</p>
-            <div class="step-accordion">
-              Primaries can be 'open' (any registered voter) or 'closed' (only party members). Winners represent their party in the General Election.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-card" data-category="federal state">
-            <span class="step-badge">03</span>
-            <span class="material-symbols-outlined step-icon">podium</span>
-            <h3>Debates</h3>
-            <p class="step-desc">Candidates face off to discuss policies, vision, and respond to public concerns on live air.</p>
-            <div class="step-accordion">
-              Debates provide a platform for voters to compare candidates' stances side-by-side on critical issues like economy, health, and security.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">04</span>
-            <span class="material-symbols-outlined step-icon" style="color:var(--secondary)">event_available</span>
-            <h3>Registration Deadlines</h3>
-            <p class="step-desc">The final dates for citizens to register to vote in the upcoming general election cycle.</p>
-            <div class="step-accordion">
-              Deadlines vary by state. Many states offer online registration, while some allow same-day registration at polling places.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 5 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">05</span>
-            <span class="material-symbols-outlined step-icon">how_to_vote</span>
-            <h3>Early Voting</h3>
-            <p class="step-desc">Opportunity for voters to cast their ballots before the official election day at designated sites.</p>
-            <div class="step-accordion">
-              Early voting helps reduce lines on Election Day and provides flexibility for citizens with difficult work schedules or travel plans.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 6 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">06</span>
-            <span class="material-symbols-outlined step-icon" style="color:var(--secondary)">flag</span>
-            <h3>Election Day</h3>
-            <p class="step-desc">The primary day for nationwide voting. Polls open across all districts and time zones.</p>
-            <div class="step-accordion">
-              Voters typically cast ballots at their assigned local polling stations. Absentee and mail-in ballots must usually be received by this day.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 7 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">07</span>
-            <span class="material-symbols-outlined step-icon">calculate</span>
-            <h3>Counting</h3>
-            <p class="step-desc">Secure tallying of all cast ballots, including absentee and provisional votes, by election officials.</p>
-            <div class="step-accordion">
-              Counting is often observed by representatives of both parties to ensure transparency. Unofficial results are usually broadcast on election night.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 8 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">08</span>
-            <span class="material-symbols-outlined step-icon">verified</span>
-            <h3>Certification</h3>
-            <p class="step-desc">Formal process where election results are verified and legally finalized by governing boards.</p>
-            <div class="step-accordion">
-              Once all votes are tallied and any challenges are resolved, officials formally certify the winner of each race.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 9 -->
-          <div class="step-card" data-category="federal">
-            <span class="step-badge">09</span>
-            <span class="material-symbols-outlined step-icon">account_balance</span>
-            <h3>Electoral College Vote</h3>
-            <p class="step-desc">Electors meet in their respective states to cast their official votes for President and Vice President.</p>
-            <div class="step-accordion">
-              In the U.S., the President is technically elected by electors rather than the direct popular vote. A candidate needs 270 votes to win.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
-          </div>
-
-          <!-- Step 10 -->
-          <div class="step-card" data-category="federal state local">
-            <span class="step-badge">10</span>
-            <span class="material-symbols-outlined step-icon" style="color:var(--tertiary-container)">celebration</span>
-            <h3>Inauguration</h3>
-            <p class="step-desc">The formal ceremony marking the beginning of a new term for the elected official.</p>
-            <div class="step-accordion">
-              The winner takes the oath of office, affirming their commitment to uphold the laws and serve the citizens of their jurisdiction.
-            </div>
-            <div class="step-more-btn">
-              <span>Learn More</span>
-              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
-            </div>
+    <main id="main-content" role="main">
+      <section class="steps-hero">
+        <div class="container">
+          <h1 class="text-h1">Actionable Voter Guide</h1>
+          <p class="text-p">Simple, direct steps to ensure your vote is cast and counted.</p>
+          
+          <div class="filter-bar" role="tablist" aria-label="Step Categories">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Steps</button>
+            <button class="filter-btn" data-filter="registration" role="tab" aria-selected="false">Registration</button>
+            <button class="filter-btn" data-filter="polling" role="tab" aria-selected="false">Polling</button>
+            <button class="filter-btn" data-filter="rights" role="tab" aria-selected="false">Your Rights</button>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">ElectIQ</div>
-        <p class="footer-copy">© 2026 ElectIQ. Non-partisan educational platform.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a><a href="timeline.html">Timeline</a><a href="steps.html">Steps</a>
-        <a href="glossary.html">Glossary</a><a href="chat.html">AI Assistant</a><a href="quiz.html">Quiz</a>
-      </nav>
-    </div>
-  </footer>
+      <section class="steps-grid-section fade-in">
+        <div class="container">
+          <div class="steps-grid" id="stepsGrid">
+            <!-- Step Card 1 -->
+            <article class="step-card" data-category="registration">
+              <div class="step-icon"><span class="material-symbols-outlined">how_to_reg</span></div>
+              <h3>Check Your Status</h3>
+              <p>Verify you are registered at your current address.</p>
+              <button class="step-more-btn" aria-expanded="false" aria-controls="step1-content">
+                <span>Learn More</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </button>
+              <div class="step-accordion" id="step1-content">
+                <div class="step-inner">
+                  <p>Visit Vote.gov to check your status instantly. Most states have online portals for registration verification.</p>
+                  <ul>
+                    <li>Check your physical address</li>
+                    <li>Verify party affiliation</li>
+                    <li>Update if you have moved</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
 
-</div>
-<script src="script.js"></script>
+            <!-- Step Card 2 -->
+            <article class="step-card" data-category="polling">
+              <div class="step-icon"><span class="material-symbols-outlined">location_on</span></div>
+              <h3>Know Your Location</h3>
+              <p>Find where you need to go on election day.</p>
+              <button class="step-more-btn" aria-expanded="false" aria-controls="step2-content">
+                <span>Learn More</span>
+                <span class="material-symbols-outlined">expand_more</span>
+              </button>
+              <div class="step-accordion" id="step2-content">
+                <div class="step-inner">
+                  <p>Polling locations can change cycle by cycle. Verify yours at least 48 hours before heading out.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Map Section -->
+            <section class="map-section span-full fade-in" style="grid-column: 1 / -1; margin-top: 40px;">
+              <div class="card" style="padding: 30px;">
+                <h2 class="text-h2">🗺️ Find Your Polling Location</h2>
+                <p>Enter your address to find nearby polling stations and civic offices.</p>
+                
+                <div class="map-search-box">
+                  <input type="text" id="mapSearch" placeholder="Enter your full address..." aria-label="Search address">
+                </div>
+                
+                <div id="map" style="width:100%; height:400px; border-radius:12px; margin-top:20px; background:#f0f0f0;"></div>
+                
+                <div id="locationInfo" style="display:none; margin-top:20px;" class="info-panel">
+                  <h3>Nearby Locations</h3>
+                  <p>Searching results based on Google Maps data...</p>
+                </div>
+                
+                <footer class="map-attribution" style="margin-top:10px; font-size:12px; color:#595959;">
+                  Powered by Google Maps Service
+                </footer>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">ElectIQ</div>
+          <p class="footer-copy">© 2026 ElectIQ. Always check official sources.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+  
+  <script src="env.example.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

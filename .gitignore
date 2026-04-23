@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+env.js
+
+# Build / Temp data
+.DS_Store
+dist/
+tmp/
