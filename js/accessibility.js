@@ -1,14 +1,24 @@
 /**
- * @description Accessibility helper service for focus management and announcements
- * @namespace ElectIQ.Accessibility
+ * @module accessibility
+ * @description Accessibility helper service for focus management, screen reader
+ * announcements, and keyboard navigation support. Ensures WCAG 2.1 AA compliance
+ * across all interactive components in the ElectIQ application.
+ * @version 3.0.0
+ * @author ElectIQ Team
  */
 window.ElectIQ = window.ElectIQ || {};
 
-window.ElectIQ.Accessibility = (function() {
+window.ElectIQ.Accessibility = (function () {
+  'use strict';
+
   /**
-   * @description Get all focusable elements within a container
-   * @param {HTMLElement} container - The container to search
-   * @returns {NodeList} - List of focusable elements
+   * @description Queries all focusable elements within a given container.
+   * Includes buttons, links, inputs, selects, textareas, and custom tabindex elements.
+   * @param {HTMLElement} container - The DOM container to search within
+   * @returns {NodeList} List of focusable child elements
+   * @example
+   * const focusable = getFocusableElements(modalEl);
+   * focusable[0].focus();
    */
   const getFocusableElements = (container) => {
     return container.querySelectorAll(
@@ -17,15 +27,24 @@ window.ElectIQ.Accessibility = (function() {
   };
 
   /**
-   * @description Trap focus within a modal or component
-   * @param {HTMLElement} container - The container to trap focus in
-   * @param {KeyboardEvent} event - The keydown event
+   * @description Traps keyboard focus within a modal or dialog component.
+   * When Tab reaches the last focusable element, it wraps to the first,
+   * and vice versa with Shift+Tab.
+   * @param {HTMLElement} container - The container to trap focus within
+   * @param {KeyboardEvent} event - The keydown event to intercept
+   * @returns {void}
+   * @example
+   * modal.addEventListener('keydown', (e) => trapFocus(modal, e));
    */
   const trapFocus = (container, event) => {
-    if (event.key !== 'Tab') return;
+    if (event.key !== 'Tab') {
+      return;
+    }
 
     const focusable = getFocusableElements(container);
-    if (focusable.length === 0) return;
+    if (focusable.length === 0) {
+      return;
+    }
 
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -44,9 +63,13 @@ window.ElectIQ.Accessibility = (function() {
   };
 
   /**
-   * @description Announce text to screen readers via aria-live region
-   * @param {string} text - Message to announce
-   * @param {string} [priority='polite'] - aria-live priority
+   * @description Announces text content to screen readers via an aria-live region.
+   * Creates the announcer element on first use and resets it between announcements.
+   * @param {string} text - The message to announce
+   * @param {string} [priority='polite'] - aria-live priority ('polite' or 'assertive')
+   * @returns {void}
+   * @example
+   * announceToScreenReader('Quiz completed! You scored 4 out of 5.');
    */
   const announceToScreenReader = (text, priority = 'polite') => {
     let announcer = document.getElementById('sr-announcer');
@@ -64,11 +87,17 @@ window.ElectIQ.Accessibility = (function() {
   };
 
   /**
-   * @description Handle skip link navigation
+   * @description Initializes the skip-to-content link for keyboard navigation.
+   * Intercepts the click to programmatically focus the main content area.
+   * @returns {void}
+   * @example
+   * ElectIQ.Accessibility.initSkipLink();
    */
   const initSkipLink = () => {
     const skipLink = document.querySelector('.skip-link');
-    if (!skipLink) return;
+    if (!skipLink) {
+      return;
+    }
 
     skipLink.addEventListener('click', (e) => {
       e.preventDefault();

@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" 
-     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://firestore.googleapis.com https://www.googletagmanager.com;">
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com;">
   
-  <title>Civic Quiz | ElectIQ knowledge Test</title>
+  <title>Civic Quiz | ElectIQ Knowledge Test</title>
   <meta name="description" content="Test your knowledge of the U.S. election process and earn your Civic Expert badge.">
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
@@ -17,7 +17,9 @@
 
   <!-- Firebase CDN -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
   <script>
@@ -43,6 +45,7 @@
           <a href="quiz.html" class="nav-link active" aria-current="page">Quiz</a>
         </nav>
         <div class="nav-actions">
+          <span id="auth-status" class="auth-badge" aria-label="Session status" aria-live="polite">Connecting...</span>
           <div id="firebaseStatus" class="status-dot" title="Connecting to leaderboard server..."></div>
           <a href="chat.html" class="btn-ask-ai">
             <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
@@ -87,12 +90,12 @@
               <button class="btn-primary" onclick="location.reload()">Try Again</button>
             </div>
 
-            <!-- Leaderboard Selection -->
-            <section class="leaderboard-section fade-in">
+            <!-- Leaderboard -->
+            <section aria-label="Community Leaderboard" class="leaderboard-section fade-in">
               <h3>🏆 Community Leaderboard</h3>
-              <div class="leaderboard-list" id="leaderboardList">
-                <p>Loading ranking...</p>
-              </div>
+              <ul id="leaderboard-list" role="list" aria-label="Top 10 quiz scores">
+                <li aria-busy="true">Loading scores...</li>
+              </ul>
             </section>
           </div>
         </div>
@@ -103,7 +106,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="footer-logo">ElectIQ</div>
-          <p class="footer-copy">© 2026 ElectIQ. Test your civil IQ.</p>
+          <p class="footer-copy">© 2026 ElectIQ. Test your civic IQ.</p>
         </div>
       </div>
     </footer>
@@ -113,9 +116,11 @@
 
   <script src="env.example.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/constants.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/analytics.js"></script>
   <script src="js/firebase.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/accessibility.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/quiz.js"></script>

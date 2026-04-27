@@ -5,15 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" 
-     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://api.anthropic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.anthropic.com https://www.googletagmanager.com;">
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://apis.google.com https://api.anthropic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.anthropic.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com;">
   
-  <title>AI Assistant | ElectIQ Civic Expert</title>
-  <meta name="description" content="Ask any question about the U.S. election process and get instant, non-partisan AI assistance.">
+  <title>AI Chat Assistant | ElectIQ</title>
+  <meta name="description" content="Ask our AI about any election topic for instant, fact-based answers.">
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
   <script>
@@ -26,7 +32,7 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <div class="page-wrapper chat-page">
+  <div class="page-wrapper">
     <header class="navbar" role="banner">
       <div class="navbar-inner">
         <a href="index.html" class="navbar-logo">ElectIQ</a>
@@ -39,85 +45,110 @@
           <a href="quiz.html" class="nav-link">Quiz</a>
         </nav>
         <div class="nav-actions">
+          <span id="auth-status" class="auth-badge" aria-label="Session status" aria-live="polite">Connecting...</span>
+          <a href="chat.html" class="btn-ask-ai">
+            <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
+            Ask AI
+          </a>
           <button class="dark-toggle" id="darkToggle" aria-label="Switch to dark mode" aria-pressed="false">🌙</button>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-drawer" id="mobileDrawer">
+        <nav class="mobile-drawer-links" aria-label="Mobile Navigation">
+          <a href="index.html" class="nav-link">Learn</a>
+          <a href="timeline.html" class="nav-link">Timeline</a>
+          <a href="steps.html" class="nav-link">Steps</a>
+          <a href="glossary.html" class="nav-link">Glossary</a>
+          <a href="chat.html" class="nav-link active">AI Assistant</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <button class="nav-link" id="darkToggleMobile">🌙 Dark Mode</button>
+        </nav>
       </div>
     </header>
 
-    <main id="main-content" class="chat-container-modern" role="main">
-      <div class="container">
-        <div class="chat-card fade-in">
-          <!-- Chat Header -->
+    <main id="main-content" role="main">
+      <section class="chat-container-modern">
+        <div class="chat-card">
           <div class="chat-card-header">
             <div class="bot-info">
               <div class="bot-icon">
                 <span class="material-symbols-outlined">smart_toy</span>
               </div>
               <div class="bot-text">
-                <h2 class="text-h3">ElectIQ Assistant</h2>
+                <h2>ElectIQ Assistant</h2>
                 <p class="bot-subtitle">Reliable • Non-partisan • Expert</p>
               </div>
             </div>
             <div class="chat-header-actions">
-              <button class="icon-btn" title="Chat History"><span class="material-symbols-outlined">history</span></button>
-              <button class="icon-btn" title="Settings"><span class="material-symbols-outlined">settings</span></button>
+              <button class="icon-btn" aria-label="Chat History"><span class="material-symbols-outlined">history</span></button>
+              <button class="icon-btn" aria-label="Settings"><span class="material-symbols-outlined">settings</span></button>
             </div>
           </div>
 
-          <!-- Chat Messages Area -->
-          <div class="chat-body" id="chatBody" aria-live="polite">
+          <div class="chat-body" id="chatBody" aria-live="polite" aria-relevant="additions">
             <div class="chat-msg ai">
               <div class="msg-avatar">
                 <span class="material-symbols-outlined">smart_toy</span>
               </div>
               <div class="msg-bubble-wrapper">
-                <div class="msg-ai">Hello! I'm your ElectIQ assistant. I'm here to provide neutral, fact-based information about elections and democratic processes. How can I help you today?</div>
+                <div class="msg-ai">
+                  Hello! I'm your ElectIQ assistant. I'm here to provide neutral, fact-based information about elections and democratic processes. How can I help you today?
+                </div>
                 <div class="msg-sources">
-                  <span class="material-symbols-outlined">verified</span>
+                  <span class="material-symbols-outlined">check_circle</span>
                   Sources: Federal Election Commission, USA.gov
                 </div>
               </div>
             </div>
-            
-            <div class="typing-indicator" id="typingIndicator" style="display:none;" aria-hidden="true">
-              <span></span><span></span><span></span>
+            <div class="typing-indicator" id="typingIndicator" aria-label="AI is typing" aria-busy="false" style="display: none;">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
             </div>
           </div>
 
-          <!-- Suggested Actions -->
           <div class="suggested-chips-bar" id="chatChips">
-            <button class="chip">How do I register?</button>
-            <button class="chip">What is the Electoral College?</button>
-            <button class="chip">When is Election Day?</button>
-            <button class="chip">How are votes counted?</button>
+            <button class="chip" aria-label="Ask: How do I register?">How do I register?</button>
+            <button class="chip" aria-label="Ask: What is the Electoral College?">What is the Electoral College?</button>
+            <button class="chip" aria-label="Ask: When is Election Day?">When is Election Day?</button>
+            <button class="chip" aria-label="Ask: How are votes counted?">How are votes counted?</button>
           </div>
 
-          <!-- Chat Input Area -->
           <div class="chat-card-footer">
             <div class="input-container">
-              <input type="text" id="chatInput" placeholder="Type your election question here..." aria-label="Ask a question about elections">
+              <input type="text" id="chatInput" placeholder="Type your election question here..." aria-label="Chat message input" maxlength="500" autocomplete="off">
               <div class="input-actions">
                 <button class="mic-btn" aria-label="Voice input"><span class="material-symbols-outlined">mic</span></button>
-                <button id="sendBtn" class="send-btn" disabled aria-label="Send message">
+                <button class="send-btn" id="sendBtn" disabled aria-label="Send message">
                   <span class="material-symbols-outlined">send</span>
                 </button>
               </div>
             </div>
-            <div class="chat-footer-disclaimer">
-              ELECTIQ AI MAY PROVIDE INFORMATION FOR EDUCATIONAL PURPOSES ONLY. ALWAYS VERIFY WITH OFFICIAL LOCAL SOURCES.
-            </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">ElectIQ</div>
+          <p class="footer-copy">© 2026 ElectIQ. AI responses are for educational purposes only.</p>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <div id="sr-announcer" class="sr-only" aria-live="polite"></div>
 
   <script src="env.example.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/constants.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/accessibility.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/chat.js"></script>

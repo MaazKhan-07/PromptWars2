@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="16" failures="0" timestamp="2026-04-27T14:59:08.640Z">
+  <testsuite name="Performance Budgets" tests="5">
+    <testcase name="CSS variable tokens cover all brand colors" classname="Performance Budgets">
+
+    </testcase>
+    <testcase name="no synchronous XHR calls (only async fetch)" classname="Performance Budgets">
+
+    </testcase>
+    <testcase name="all API calls have try/catch error boundaries" classname="Performance Budgets">
+
+    </testcase>
+    <testcase name="JS files use strict mode" classname="Performance Budgets">
+
+    </testcase>
+    <testcase name="constants module centralizes magic values" classname="Performance Budgets">
+
+    </testcase>
+  </testsuite>
+  <testsuite name="HTML Structure Validation" tests="5">
+    <testcase name="all HTML pages exist" classname="HTML Structure Validation">
+
+    </testcase>
+    <testcase name="all HTML pages include Firebase scripts" classname="HTML Structure Validation">
+
+    </testcase>
+    <testcase name="all HTML pages have auth-status badge" classname="HTML Structure Validation">
+
+    </testcase>
+    <testcase name="all HTML pages have skip link" classname="HTML Structure Validation">
+
+    </testcase>
+    <testcase name="quiz page has leaderboard section" classname="HTML Structure Validation">
+
+    </testcase>
+  </testsuite>
+  <testsuite name="Code Quality Validation" tests="6">
+    <testcase name="ESLint config exists" classname="Code Quality Validation">
+
+    </testcase>
+    <testcase name="ESLint config has critical rules" classname="Code Quality Validation">
+
+    </testcase>
+    <testcase name="CI workflow exists" classname="Code Quality Validation">
+
+    </testcase>
+    <testcase name="package.json has required test scripts" classname="Code Quality Validation">
+
+    </testcase>
+    <testcase name="all JS modules have JSDoc @module header" classname="Code Quality Validation">
+
+    </testcase>
+    <testcase name="storage.js module exists for user preferences" classname="Code Quality Validation">
+
+    </testcase>
+  </testsuite>
+</testsuites>

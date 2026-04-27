@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" 
-     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://maps.googleapis.com https://www.googletagmanager.com;">
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.googletagmanager.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://maps.googleapis.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com;">
   
   <title>Voter Steps | ElectIQ Guide</title>
   <meta name="description" content="Step-by-step guide to voter registration, polling, and voting rights.">
@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
   <script>
@@ -39,6 +45,7 @@
           <a href="quiz.html" class="nav-link">Quiz</a>
         </nav>
         <div class="nav-actions">
+          <span id="auth-status" class="auth-badge" aria-label="Session status" aria-live="polite">Connecting...</span>
           <a href="chat.html" class="btn-ask-ai">
             <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
             Ask AI
@@ -69,7 +76,6 @@
       <section class="steps-grid-section fade-in">
         <div class="container">
           <div class="steps-grid" id="stepsGrid">
-            <!-- Step Card 1 -->
             <article class="step-card" data-category="registration">
               <div class="step-icon"><span class="material-symbols-outlined">how_to_reg</span></div>
               <h3>Check Your Status</h3>
@@ -90,7 +96,6 @@
               </div>
             </article>
 
-            <!-- Step Card 2 -->
             <article class="step-card" data-category="polling">
               <div class="step-icon"><span class="material-symbols-outlined">location_on</span></div>
               <h3>Know Your Location</h3>
@@ -148,8 +153,11 @@
   
   <script src="env.example.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/constants.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/accessibility.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/main.js"></script>

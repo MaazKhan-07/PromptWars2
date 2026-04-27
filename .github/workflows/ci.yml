@@ -1,0 +1,85 @@
+name: ElectIQ CI — Test Suite
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Run Full Test Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Run Unit Tests
+        run: npm run test:unit
+
+      - name: Run Security Tests
+        run: npm run test:security
+
+      - name: Run Accessibility Tests
+        run: npm run test:a11y
+
+      - name: Run Integration Tests
+        run: npm run test:integration
+
+      - name: Run Firebase Tests
+        run: npm run test:firebase
+
+      - name: Run E2E Tests
+        run: npm run test:e2e
+
+      - name: Run Performance Tests
+        run: npm run test:performance
+
+      - name: Generate Test Report
+        run: npm run test:report
+        if: always()
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: tests/reports/
+
+  validate:
+    name: Code Quality Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Lint JavaScript
+        run: npm run lint
+
+      - name: Check JSDoc Coverage
+        run: npm run docs:check
+
+      - name: Validate HTML
+        run: npm run validate:html
+
+      - name: Check Security Headers
+        run: npm run validate:security

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" 
-     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googletagmanager.com;">
+     content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com;">
   
   <title>Election Timeline | ElectIQ Roadmap</title>
   <meta name="description" content="A comprehensive timeline of the U.S. election cycle from registration to inauguration.">
@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css?v=1.1">
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEMO12345"></script>
   <script>
@@ -40,6 +46,7 @@
           <a href="quiz.html" class="nav-link">Quiz</a>
         </nav>
         <div class="nav-actions">
+          <span id="auth-status" class="auth-badge" aria-label="Session status" aria-live="polite">Connecting...</span>
           <a href="chat.html" class="btn-ask-ai">
             <span class="material-symbols-outlined" style="font-size:18px">smart_toy</span>
             Ask AI
@@ -77,55 +84,42 @@
           <div class="timeline-scroll-container">
             <div class="timeline-grid" id="timelineTrack" role="list">
               <div class="timeline-line-background"></div>
-              <!-- Stage 1 -->
               <div class="timeline-card" data-stage="registration" role="listitem" tabindex="0" aria-label="Details for Voter Registration">
                 <div class="timeline-node" style="background:#2196F3">
                   <span class="material-symbols-outlined">how_to_reg</span>
                 </div>
                 <div class="timeline-label">Voter Registration</div>
               </div>
-
-              <!-- Stage 2 -->
               <div class="timeline-card" data-stage="primaries" role="listitem" tabindex="0" aria-label="Details for Primary Elections">
                 <div class="timeline-node" style="background:#9C27B0">
                   <span class="material-symbols-outlined">account_balance</span>
                 </div>
                 <div class="timeline-label">Primary Elections</div>
               </div>
-
-              <!-- Stage 3 -->
               <div class="timeline-card" data-stage="campaigns" role="listitem" tabindex="0" aria-label="Details for Campaigns and Debates">
                 <div class="timeline-node" style="background:#FF9800">
                   <span class="material-symbols-outlined">campaign</span>
                 </div>
-                <div class="timeline-label">Campaigns & Debates</div>
+                <div class="timeline-label">Campaigns &amp; Debates</div>
               </div>
-
-              <!-- Stage 4 -->
               <div class="timeline-card" data-stage="electionday" role="listitem" tabindex="0" aria-label="Details for Election Day">
                 <div class="timeline-node" style="background:#E53935">
                   <span class="material-symbols-outlined">how_to_vote</span>
                 </div>
                 <div class="timeline-label">Election Day</div>
               </div>
-
-              <!-- Stage 5 -->
               <div class="timeline-card" data-stage="counting" role="listitem" tabindex="0" aria-label="Details for Vote Counting">
                 <div class="timeline-node" style="background:#00897B">
                   <span class="material-symbols-outlined">calculate</span>
                 </div>
                 <div class="timeline-label">Vote Counting</div>
               </div>
-
-              <!-- Stage 6 -->
               <div class="timeline-card" data-stage="certification" role="listitem" tabindex="0" aria-label="Details for Certification">
                 <div class="timeline-node" style="background:#43A047">
                   <span class="material-symbols-outlined">verified</span>
                 </div>
                 <div class="timeline-label">Certification</div>
               </div>
-
-              <!-- Stage 7 -->
               <div class="timeline-card" data-stage="inauguration" role="listitem" tabindex="0" aria-label="Details for Inauguration">
                 <div class="timeline-node" style="background:#FFB300">
                   <span class="material-symbols-outlined">celebration</span>
@@ -135,7 +129,6 @@
             </div>
           </div>
 
-          <!-- Bottom Scroll Bar Representation -->
           <div class="timeline-footer-scroll">
              <span class="material-symbols-outlined nav-arrow">arrow_left</span>
              <div class="scroll-track">
@@ -170,8 +163,11 @@
 
   <script src="env.example.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/constants.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/accessibility.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/timeline.js"></script>
